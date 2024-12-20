@@ -21,12 +21,16 @@ public class School {
 
     @Override
     public String toString() {
+        System.out.println("\nStudents:\n");
         for (Person person : this.students) {
             System.out.println(person.toString());
         }
+
+        System.out.println("\nTeachers:\n");
         for (Person person : this.teachers) {
             System.out.println(person.toString());
         }
+
         return "";
     }
 }

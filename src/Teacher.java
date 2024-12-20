@@ -24,6 +24,6 @@ public class Teacher extends Person {
 
     @Override
     public String toString() {
-        return super.toString() + ANSI_RED + " I am teach " + this.subject + "." + ANSI_RESET + ANSI_YELLOW + " My salary is " + this.salary + " and I have " + this.yearsOfExperience + " years of experience." + ANSI_RESET;
+        return super.toString() + ANSI_RED + " I teach " + this.subject + "." + ANSI_RESET + ANSI_YELLOW + " My salary is " + this.salary + " and I have " + this.yearsOfExperience + " years of experience." + ANSI_RESET;
     }
 }

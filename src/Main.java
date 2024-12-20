@@ -121,26 +121,28 @@ public class Main {
                     System.out.println("Invalid grade!");
                 }
                 break;
-            } else {
-                System.out.println("No students with this name and surname!");
             }
+            System.out.println("No students with this name and surname!");
+            break;
         }
     }
 
     private static void raiseSalary(Scanner scan, School sc) {
         System.out.println("Who do you want to raise salary? (name surname)");
         String[] studentNameAndSurname = scan.nextLine().split(" ");
+
         for (Teacher te : sc.getTeachers()) {
             if (te.getName().equals(studentNameAndSurname[0]) && te.getSurname().equals(studentNameAndSurname[1])) {
+
                 System.out.println("Actual " + te.getName() + " " + te.getSurname() + " salary is " + te.getSalary() + ".");
                 System.out.println("How much do you want to raise salary by? (in percents)");
                 int percent = scan.nextInt();
                 scan.nextLine();
                 te.giveRaise(percent);
                 System.out.println("Salary raised! Now it's " + te.getSalary() + ".");
-            } else {
-                System.out.println("No teachers with this name and surname!");
+                break;
             }
+            System.out.println("No teachers with this name and surname!");
             break;
         }
     }

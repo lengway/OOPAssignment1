@@ -29,12 +29,15 @@ public class Main {
             throw new RuntimeException(e);
         }
 
-        while (true) {
-            chooseActivity(sc);
+        boolean isRunning = true;
+        while (isRunning) {
+            isRunning = chooseActivity(sc);
         }
+
+        System.out.println("Goodbye!");
     }
 
-    private static void chooseActivity(School sc) {
+    private static boolean chooseActivity(School sc) {
         Scanner scan = new Scanner(System.in);
         System.out.println("Choose activity:");
         System.out.println("1 - Add grade\n2 - Raise salary\n3 - Print all members\n4 - Print all students\n5 - Print all teachers\n0 - Exit");
@@ -61,11 +64,12 @@ public class Main {
                 }
                 break;
             case 0:
-                System.exit(0);
+                return false;
             default:
                 System.out.println("Invalid number!");
                 break;
         }
+        return true;
     }
 
     private static Teacher getTeacher(String line) {

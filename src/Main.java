@@ -1,3 +1,7 @@
+import models.School;
+import models.Student;
+import models.Teacher;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -7,7 +11,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         School sc = new School();
-        try (BufferedReader reader = new BufferedReader(new FileReader("students.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/students.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 Student student = getStudent(line);
@@ -18,7 +22,7 @@ public class Main {
             throw new RuntimeException(e);
         }
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("teachers.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/teachers.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 Teacher teacher = getTeacher(line);

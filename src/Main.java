@@ -112,28 +112,34 @@ public class Main {
     private static void addGrade(Scanner scan, School sc) {
         System.out.println("Who do you want to add grade to? (name surname)");
         String[] teacherNameAndSurname = scan.nextLine().split(" ");
+        boolean found = false;
+
         for (Student st : sc.getStudents()) {
             if (st.getName().equals(teacherNameAndSurname[0]) && st.getSurname().equals(teacherNameAndSurname[1])) {
                 System.out.println("Actual GPA is " + st.calculateGPA() + ".");
                 System.out.println("What grade do you want to add? (0-100)");
                 int grade = scan.nextInt();
                 scan.nextLine();
+
                 if (grade >= 0 && grade <= 100) {
                     st.addGrade(grade);
                     System.out.println("Grade added! Now student GPA is " + st.calculateGPA() + ".");
                 } else {
                     System.out.println("Invalid grade!");
                 }
+                found = true;
                 break;
             }
+        }
+        if (!found) {
             System.out.println("No students with this name and surname!");
-            break;
         }
     }
 
     private static void raiseSalary(Scanner scan, School sc) {
         System.out.println("Who do you want to raise salary? (name surname)");
         String[] studentNameAndSurname = scan.nextLine().split(" ");
+        boolean found = false;
 
         for (Teacher te : sc.getTeachers()) {
             if (te.getName().equals(studentNameAndSurname[0]) && te.getSurname().equals(studentNameAndSurname[1])) {
@@ -144,10 +150,12 @@ public class Main {
                 scan.nextLine();
                 te.giveRaise(percent);
                 System.out.println("Salary raised! Now it's " + te.getSalary() + ".");
+                found = true;
                 break;
             }
-            System.out.println("No teachers with this name and surname!");
-            break;
+        }
+        if (!found) {
+            System.out.println("No students with this name and surname!");
         }
     }
 }
